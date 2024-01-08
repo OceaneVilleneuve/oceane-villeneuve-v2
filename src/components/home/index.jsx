@@ -67,7 +67,7 @@ const OpenToWorkContainer = styled.h1`
 
 const SocialsLinkContainer = styled.div`
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 120px;
 `;
 

@@ -1,9 +1,9 @@
 
 .pong-image {
   position: absolute;
-  top: 44%;
-  width: 270px;
-  height: 270px;
+  top: 50%;
+  width: 260px;
+  height: 260px;
   transform-origin: center;
   animation: rotateAndMove 10s linear infinite;
   z-index: -3;
