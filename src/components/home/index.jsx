@@ -6,8 +6,8 @@ import "./infiniteScolling.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./rotatingSvg.css";
-
-// import colors from '../../utils/style/colors';
+import ButterflyRight from "../../assets/4467b2537f5e5ada1e527a8573de8a7e.gif";
+// import ButterflyLeft from "../../assets/1042729_252ef.gif"
 
 const HeightPage = styled.div`
   height: 100vh;
@@ -18,7 +18,7 @@ const TitleWebsite = styled.h1`
   padding: 0px 120px;
   font-weight: lighter;
   position: absolute;
-  z-index: 3;
+  z-index: -2;
 `;
 const SubTitleWebsiteWeb = styled.h1`
   font-size: 70px;
@@ -26,7 +26,7 @@ const SubTitleWebsiteWeb = styled.h1`
   position: absolute;
   top: 20rem;
   right: 320px;
-  z-index: 3;
+  z-index: -2;
 `;
 const SubTitleWebsiteDeveloper = styled.h1`
   font-size: 70px;
@@ -34,7 +34,7 @@ const SubTitleWebsiteDeveloper = styled.h1`
   position: absolute;
   top: 24rem;
   right: 10rem;
-  z-index: 3;
+  z-index: -2;
 `;
 const SubTitleWebsiteDesigner = styled.h1`
   font-size: 70px;
@@ -42,7 +42,7 @@ const SubTitleWebsiteDesigner = styled.h1`
   position: absolute;
   top: 28rem;
   right: 110px;
-  z-index: 3;
+  z-index: -2;
 `;
 const AnimatedPicture = styled(motion.img)`
   border-radius: 100%;
@@ -58,16 +58,17 @@ const PictureContainer = styled.div`
   padding-top: 2rem;
 `;
 const ScrollTextContainer = styled.div`
-  padding-top: 5rem;
+  padding-top: 6rem;
 `;
 
 const OpenToWorkContainer = styled.h1`
   word-spacing: 1rem;
+  font-weight: lighter;
 `;
 
 const SocialsLinkContainer = styled.div`
   position: absolute;
-  top: 60%;
+  top: 29rem;
   left: 120px;
 `;
 
@@ -78,18 +79,44 @@ const SocialLink = styled.a`
   font-family: "Ade Display", serif;
 `;
 
+const ButterflyPngRight = styled(motion.img)`
+  position: absolute;
+  top: 21.3rem;
+  right: 19rem;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  z-index: 2;
+`;
+
+// const ButterflyPngLeft = styled.img`
+//   position: absolute;
+//   top: 13rem;
+//   right: 15rem;
+//   height: 45px;
+//   width: 45px;
+//   object-fit: cover;
+// `;
+
 const Home = () => {
   const [animationKey, setAnimationKey] = useState(0);
+  const [hasHovered, setHasHovered] = useState(false);
+
   const [ref, inView] = useInView({
-    threshold: 0.5, // Ajustez la valeur du seuil selon vos besoins
+    threshold: 0.5,
   });
 
   useEffect(() => {
     if (inView) {
-      // Si l'élément est dans la vue, déclenchez l'animation
       setAnimationKey((prevKey) => prevKey + 1);
+      // Réinitialise hasHovered à false lorsque l'ancre est revisitée
+      setHasHovered(false);
     }
   }, [inView]);
+
+  const handleButterflyHover = () => {
+    setHasHovered(true);
+  };
 
   return (
     <HeightPage id="homePage">
@@ -120,11 +147,14 @@ const Home = () => {
         </motion.div>
       </div>
       <SocialsLinkContainer>
-        <SocialLink href="www.linkedin.com/in/océane-villeneuve">
+        <SocialLink
+          href="www.linkedin.com/in/océane-villeneuve"
+          target="_blank"
+        >
           LINKEDIN
         </SocialLink>
         <br />
-        <SocialLink href="https://github.com/OceaneVilleneuve">
+        <SocialLink href="https://github.com/OceaneVilleneuve" target="_blank">
           GITHUB
         </SocialLink>
       </SocialsLinkContainer>
@@ -134,12 +164,32 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ ease: "easeOut", duration: 1 }}
-          style={{ zIndex: -1 }}
+          style={{ zIndex: -3 }}
           src={ProfilPicture}
           alt="Oceane"
         />
         <img className="pong-image" src={SunBurst} alt="sunburst" />
       </PictureContainer>
+      <ButterflyPngRight
+        src={ButterflyRight}
+        alt="butterfly"
+        initial={{
+          opacity: 0,
+          scale: 0.5,
+          x: window.innerWidth,
+          y: window.innerHeight,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          x: hasHovered ? -500 : 0,
+          y: hasHovered ? -500 : 0,
+        }}
+        whileHover={{ x: -50, y: -50, rotate: 45 }}
+        transition={{ ease: "linear", duration: 3 }}
+        onMouseEnter={handleButterflyHover}
+      />
+      {/* <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" /> */}
       <ScrollTextContainer>
         <div className="m-scroll">
           <div className="m-scroll__title">

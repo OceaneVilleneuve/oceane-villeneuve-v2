@@ -14,7 +14,8 @@ const HeaderContainer = styled.nav`
   align-items: center;
   padding: 20px 25px;
   position: sticky;
-  top: 0px
+  top: 0px;
+  z-index: 3;
 `
 
 const HeaderBanner = styled.h1 `
