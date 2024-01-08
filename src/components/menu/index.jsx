@@ -38,7 +38,6 @@ const menuData = [
   { label: "contact", id: "contactPage" },
   { label: "réseaux sociaux", id: "socialsPage" },
 ];
-
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuControls = useAnimation();
