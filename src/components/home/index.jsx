@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./rotatingSvg.css";
 import ButterflyRight from "../../assets/4467b2537f5e5ada1e527a8573de8a7e.gif";
-import ButterflyLeft from "../../assets/1042729_252ef.gif"
+// import ButterflyLeft from "../../assets/1042729_252ef.gif"
 
 const HeightPage = styled.div`
   height: 100vh;
@@ -24,24 +24,21 @@ const SubTitleWebsiteWeb = styled.h1`
   font-size: 70px;
   font-weight: lighter;
   position: absolute;
-  top: 20rem;
-  right: 320px;
+  padding: 11rem 59rem;
   z-index: -2;
 `;
 const SubTitleWebsiteDeveloper = styled.h1`
   font-size: 70px;
   font-weight: lighter;
   position: absolute;
-  top: 24rem;
-  right: 10rem;
+  padding: 15rem 49rem;
   z-index: -2;
 `;
 const SubTitleWebsiteDesigner = styled.h1`
   font-size: 70px;
   font-weight: lighter;
   position: absolute;
-  top: 28rem;
-  right: 110px;
+  padding: 19rem 59rem;
   z-index: -2;
 `;
 const AnimatedPicture = styled(motion.img)`
@@ -81,7 +78,7 @@ const SocialLink = styled.a`
 
 const ButterflyPngRight = styled(motion.img)`
   position: absolute;
-  top: 21.3rem;
+  top: 21.5rem;
   right: 19rem;
   height: 50px;
   width: 50px;
@@ -89,14 +86,14 @@ const ButterflyPngRight = styled(motion.img)`
   z-index: 2;
 `;
 
-const ButterflyPngLeft = styled.img`
-  position: absolute;
-  top: 10rem;
-  right: 11rem;
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-`;
+// const ButterflyPngLeft = styled.img`
+//   position: absolute;
+//   top: 10rem;
+//   right: 11rem;
+//   height: 40px;
+//   width: 40px;
+//   object-fit: cover;
+// `;
 
 const Home = () => {
   const [animationKey, setAnimationKey] = useState(0);
@@ -128,7 +125,7 @@ const Home = () => {
           transition={{ ease: "easeOut", duration: 1 }}
         >
           <TitleWebsite>
-            SALUT,
+            BONJOUR,
             <br />
             C'EST OCEANE
           </TitleWebsite>
@@ -142,7 +139,7 @@ const Home = () => {
           transition={{ ease: "easeOut", duration: 1 }}
         >
           <SubTitleWebsiteWeb>WEB</SubTitleWebsiteWeb>
-          <SubTitleWebsiteDeveloper>DEVELOPER</SubTitleWebsiteDeveloper>
+          <SubTitleWebsiteDeveloper>DEVELOPPEUR</SubTitleWebsiteDeveloper>
           <SubTitleWebsiteDesigner>DESIGNER</SubTitleWebsiteDesigner>
         </motion.div>
       </div>
@@ -189,25 +186,34 @@ const Home = () => {
         transition={{ ease: "linear", duration: 3 }}
         onMouseEnter={handleButterflyHover}
       />
-      <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" />
+      {/* <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" /> */}
       <ScrollTextContainer>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
               <OpenToWorkContainer>
-                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
-                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
-                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
-                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
-                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
-                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
-                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
-                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
-                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
-                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
-                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
-                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
-                PROJETS • OUVERTE AUX PROJETS •
+                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
+                • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
+                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
+                • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
+                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
+                • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
+                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
+                • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
+                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
+                • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
+                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
+                • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
               </OpenToWorkContainer>
             </div>
           </div>
