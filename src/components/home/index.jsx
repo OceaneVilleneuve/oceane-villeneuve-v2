@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./rotatingSvg.css";
 import ButterflyRight from "../../assets/4467b2537f5e5ada1e527a8573de8a7e.gif";
-// import ButterflyLeft from "../../assets/1042729_252ef.gif"
+import ButterflyLeft from "../../assets/1042729_252ef.gif"
 
 const HeightPage = styled.div`
   height: 100vh;
@@ -89,14 +89,28 @@ const ButterflyPngRight = styled(motion.img)`
   z-index: 2;
 `;
 
-// const ButterflyPngLeft = styled.img`
-//   position: absolute;
-//   top: 13rem;
-//   right: 15rem;
-//   height: 45px;
-//   width: 45px;
-//   object-fit: cover;
-// `;
+const ButterflyPngLeft = styled.img`
+  position: absolute;
+  top: 10rem;
+  right: 11rem;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+`;
+
+const initialButterflyRightPosition = {
+  opacity: 0,
+  scale: 0.5,
+  x: window.innerWidth,
+  y: window.innerHeight,
+};
+
+const initialButterflyRightAnimation = {
+  opacity: 1,
+  scale: 1,
+  x: 0,
+  y: 0,
+};
 
 const Home = () => {
   const [animationKey, setAnimationKey] = useState(0);
@@ -128,9 +142,9 @@ const Home = () => {
           transition={{ ease: "easeOut", duration: 1 }}
         >
           <TitleWebsite>
-            HELLO,
+            SALUT,
             <br />
-            I'M OCEANE
+            C'EST OCEANE
           </TitleWebsite>
         </motion.div>
       </div>
@@ -173,12 +187,7 @@ const Home = () => {
       <ButterflyPngRight
         src={ButterflyRight}
         alt="butterfly"
-        initial={{
-          opacity: 0,
-          scale: 0.5,
-          x: window.innerWidth,
-          y: window.innerHeight,
-        }}
+        initial={hasHovered ? initialButterflyRightAnimation : initialButterflyRightPosition}
         animate={{
           opacity: 1,
           scale: 1,
@@ -189,20 +198,25 @@ const Home = () => {
         transition={{ ease: "linear", duration: 3 }}
         onMouseEnter={handleButterflyHover}
       />
-      {/* <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" /> */}
+      <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" />
       <ScrollTextContainer>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
               <OpenToWorkContainer>
-                OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN
-                TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO
-                WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK
-                • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK •
-                OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN
-                TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO
-                WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK • OPEN TO WORK
-                • OPEN TO WORK • OPEN TO WORK •
+                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
+                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
+                PROJETS • OUVERTE AUX PROJETS •
               </OpenToWorkContainer>
             </div>
           </div>
