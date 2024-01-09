@@ -81,8 +81,8 @@ const Menu = () => {
       </MenuButton>
       <motion.div
         variants={{
-          hidden: { x: 75, opacity: 0 },
-          visible: { x: 0, opacity: 1 },
+          hidden: { x: 75, opacity: 0, pointerEvents: "none" }, // Non cliquable initialement
+          visible: { x: 0, opacity: 1, pointerEvents: "auto" }, // Cliquable lorsque révélé
         }}
         initial="hidden"
         animate={menuControls}

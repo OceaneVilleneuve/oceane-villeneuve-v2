@@ -19,7 +19,6 @@ const TitleWebsite = styled.h1`
   z-index: -2;
 `;
 const SubTitleWebsiteWeb = styled.h1`
-  font-weight: lighter;
   position: absolute;
   z-index: -2;
   top: 0;
@@ -100,7 +99,7 @@ const Home = () => {
   return (
     <HeightPage
       id="homePage"
-      style={{ paddingTop: isMobile ? "1rem" : "4rem" }}
+      style={{ paddingTop: isMobile ? "1rem" : "5rem" }}
     >
       <div ref={ref}>
         <motion.div
@@ -112,7 +111,7 @@ const Home = () => {
           <TitleWebsite
             style={{
               fontSize: isMobile ? "17px" : "70px",
-              padding: isMobile ? "0px 33px" : "0px 50px",
+              padding: isMobile ? "0px 33px" : "0px 80px",
             }}
           >
             BONJOUR,
@@ -155,29 +154,35 @@ const Home = () => {
           </SubTitleWebsiteDesigner>
         </motion.div>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          top: isMobile ? "12rem" : "29rem",
-          left: isMobile ? "33px" : "120px",
-        }}
+      <motion.div
+        key={animationKey}
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1.5 }}
       >
-        <SocialLink
-          style={{ fontSize: isMobile ? "10px" : "25px" }}
-          href="www.linkedin.com/in/océane-villeneuve"
-          target="_blank"
+        <div
+          style={{
+            position: "absolute",
+            padding: isMobile ? "4rem 0px 0px 33px" : " 18rem 0px 0px 85px",
+          }}
         >
-          LINKEDIN
-        </SocialLink>
-        <br />
-        <SocialLink
-          href="https://github.com/OceaneVilleneuve"
-          target="_blank"
-          style={{ fontSize: isMobile ? "10px" : "25px" }}
-        >
-          GITHUB
-        </SocialLink>
-      </div>
+          <SocialLink
+            style={{ fontSize: isMobile ? "10px" : "25px" }}
+            href="www.linkedin.com/in/océane-villeneuve"
+            target="_blank"
+          >
+            LINKEDIN
+          </SocialLink>
+          <br />
+          <SocialLink
+            href="https://github.com/OceaneVilleneuve"
+            target="_blank"
+            style={{ fontSize: isMobile ? "10px" : "25px" }}
+          >
+            GITHUB
+          </SocialLink>
+        </div>
+      </motion.div>
       <PictureContainer
         ref={ref}
         style={{ paddingTop: isMobile ? null : "2rem" }}
@@ -213,7 +218,7 @@ const Home = () => {
           y: hasHovered ? -500 : 0,
         }}
         style={{
-          top: isMobile ? "8.6rem" : "21.5rem",
+          top: isMobile ? "8.6rem" : "22.5rem",
           right: isMobile ? "4rem" : "18rem",
           height: isMobile ? "35px" : "50px",
           width: isMobile ? "35px" : "50px",
@@ -223,7 +228,7 @@ const Home = () => {
         onMouseEnter={handleButterflyHover}
       />
       {/* <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" /> */}
-      <div style={{ paddingTop: isMobile ? "3rem" : "6rem" }}>
+      <div style={{ paddingTop: isMobile ? "3rem" : "14rem" }}>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
@@ -247,9 +252,7 @@ const Home = () => {
                 OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
                 • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX
                 PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE
-                AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
-                OUVERTE AUX PROJETS • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS
-                • OUVERTE AUX PROJETS • OUVERTE AUX PROJETS •
+                AUX PROJETS • OUVERTE AUX PROJETS •
               </OpenToWorkContainer>
             </div>
           </div>

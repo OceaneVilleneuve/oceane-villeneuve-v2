@@ -24,6 +24,7 @@ code {
 
 h1 {
   font-family: 'Ade Display', serif;
+  font-weight: lighter;
 }
 
 @import '~typeface-mina';
