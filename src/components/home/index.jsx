@@ -98,20 +98,6 @@ const ButterflyPngLeft = styled.img`
   object-fit: cover;
 `;
 
-const initialButterflyRightPosition = {
-  opacity: 0,
-  scale: 0.5,
-  x: window.innerWidth,
-  y: window.innerHeight,
-};
-
-const initialButterflyRightAnimation = {
-  opacity: 1,
-  scale: 1,
-  x: 0,
-  y: 0,
-};
-
 const Home = () => {
   const [animationKey, setAnimationKey] = useState(0);
   const [hasHovered, setHasHovered] = useState(false);
@@ -187,7 +173,12 @@ const Home = () => {
       <ButterflyPngRight
         src={ButterflyRight}
         alt="butterfly"
-        initial={hasHovered ? initialButterflyRightAnimation : initialButterflyRightPosition}
+        initial={{
+          opacity: 0,
+          scale: 0.5,
+          x: window.innerWidth,
+          y: window.innerHeight,
+        }}
         animate={{
           opacity: 1,
           scale: 1,
