@@ -40,3 +40,17 @@
     transform: translateX(-20%);
  }
 }
+
+
+@media only screen and (max-width: 767px) {
+  .m-scroll {
+    height: 20px;
+    padding-top: 1rem;
+  }
+  .m-scroll__title {
+    top: 15px;
+  }
+  .m-scroll__title h1 {
+    font-size: 5px;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import ProfilPicture from "../../assets/oceane.jpeg";
 import SunBurst from "../../assets/Sunburst4.png";
@@ -11,51 +12,42 @@ import ButterflyRight from "../../assets/4467b2537f5e5ada1e527a8573de8a7e.gif";
 
 const HeightPage = styled.div`
   height: 100vh;
-  padding-top: 4rem;
 `;
 const TitleWebsite = styled.h1`
-  font-size: 70px;
-  padding: 0px 120px;
   font-weight: lighter;
   position: absolute;
   z-index: -2;
 `;
 const SubTitleWebsiteWeb = styled.h1`
-  font-size: 70px;
   font-weight: lighter;
   position: absolute;
-  padding: 11rem 59rem;
   z-index: -2;
+  top: 0;
+  right: 0;
 `;
 const SubTitleWebsiteDeveloper = styled.h1`
-  font-size: 70px;
   font-weight: lighter;
   position: absolute;
-  padding: 15rem 49rem;
   z-index: -2;
+  top: 0;
+  right: 0;
 `;
 const SubTitleWebsiteDesigner = styled.h1`
-  font-size: 70px;
   font-weight: lighter;
   position: absolute;
-  padding: 19rem 59rem;
   z-index: -2;
+  top: 0;
+  right: 0;
 `;
 const AnimatedPicture = styled(motion.img)`
   border-radius: 100%;
   object-fit: cover;
-  height: 420px;
-  width: 420px;
 `;
 
 const PictureContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  padding-top: 2rem;
-`;
-const ScrollTextContainer = styled.div`
-  padding-top: 6rem;
 `;
 
 const OpenToWorkContainer = styled.h1`
@@ -63,25 +55,14 @@ const OpenToWorkContainer = styled.h1`
   font-weight: lighter;
 `;
 
-const SocialsLinkContainer = styled.div`
-  position: absolute;
-  top: 29rem;
-  left: 120px;
-`;
-
 const SocialLink = styled.a`
   text-decoration: none;
   color: #000;
-  font-size: 25px;
   font-family: "Ade Display", serif;
 `;
 
 const ButterflyPngRight = styled(motion.img)`
   position: absolute;
-  top: 21.5rem;
-  right: 19rem;
-  height: 50px;
-  width: 50px;
   object-fit: cover;
   z-index: 2;
 `;
@@ -96,6 +77,7 @@ const ButterflyPngRight = styled(motion.img)`
 // `;
 
 const Home = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [animationKey, setAnimationKey] = useState(0);
   const [hasHovered, setHasHovered] = useState(false);
 
@@ -116,7 +98,10 @@ const Home = () => {
   };
 
   return (
-    <HeightPage id="homePage">
+    <HeightPage
+      id="homePage"
+      style={{ paddingTop: isMobile ? "1rem" : "4rem" }}
+    >
       <div ref={ref}>
         <motion.div
           key={animationKey}
@@ -124,7 +109,12 @@ const Home = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ ease: "easeOut", duration: 1 }}
         >
-          <TitleWebsite>
+          <TitleWebsite
+            style={{
+              fontSize: isMobile ? "17px" : "70px",
+              padding: isMobile ? "0px 33px" : "0px 50px",
+            }}
+          >
             BONJOUR,
             <br />
             C'EST OCEANE
@@ -137,31 +127,71 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ ease: "easeOut", duration: 1 }}
+          style={{ position: "relative" }}
         >
-          <SubTitleWebsiteWeb>WEB</SubTitleWebsiteWeb>
-          <SubTitleWebsiteDeveloper>DEVELOPPEUR</SubTitleWebsiteDeveloper>
-          <SubTitleWebsiteDesigner>DESIGNER</SubTitleWebsiteDesigner>
+          <SubTitleWebsiteWeb
+            style={{
+              fontSize: isMobile ? "17px" : "70px",
+              padding: isMobile ? "3rem 4.9rem" : "11rem 19rem",
+            }}
+          >
+            WEB
+          </SubTitleWebsiteWeb>
+          <SubTitleWebsiteDeveloper
+            style={{
+              fontSize: isMobile ? "17px" : "70px",
+              padding: isMobile ? "4rem 2rem" : "15rem 9rem",
+            }}
+          >
+            DEVELOPPEUR
+          </SubTitleWebsiteDeveloper>
+          <SubTitleWebsiteDesigner
+            style={{
+              fontSize: isMobile ? "17px" : "70px",
+              padding: isMobile ? "5rem 1.9rem" : "19rem 6rem",
+            }}
+          >
+            DESIGNER
+          </SubTitleWebsiteDesigner>
         </motion.div>
       </div>
-      <SocialsLinkContainer>
+      <div
+        style={{
+          position: "absolute",
+          top: isMobile ? "12rem" : "29rem",
+          left: isMobile ? "33px" : "120px",
+        }}
+      >
         <SocialLink
+          style={{ fontSize: isMobile ? "10px" : "25px" }}
           href="www.linkedin.com/in/océane-villeneuve"
           target="_blank"
         >
           LINKEDIN
         </SocialLink>
         <br />
-        <SocialLink href="https://github.com/OceaneVilleneuve" target="_blank">
+        <SocialLink
+          href="https://github.com/OceaneVilleneuve"
+          target="_blank"
+          style={{ fontSize: isMobile ? "10px" : "25px" }}
+        >
           GITHUB
         </SocialLink>
-      </SocialsLinkContainer>
-      <PictureContainer ref={ref}>
+      </div>
+      <PictureContainer
+        ref={ref}
+        style={{ paddingTop: isMobile ? null : "2rem" }}
+      >
         <AnimatedPicture
           key={animationKey}
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ ease: "easeOut", duration: 1 }}
-          style={{ zIndex: -3 }}
+          style={{
+            zIndex: -3,
+            height: isMobile ? "150px" : "420px",
+            width: isMobile ? "150px" : "420px",
+          }}
           src={ProfilPicture}
           alt="Oceane"
         />
@@ -182,12 +212,18 @@ const Home = () => {
           x: hasHovered ? -500 : 0,
           y: hasHovered ? -500 : 0,
         }}
+        style={{
+          top: isMobile ? "8.6rem" : "21.5rem",
+          right: isMobile ? "4rem" : "18rem",
+          height: isMobile ? "35px" : "50px",
+          width: isMobile ? "35px" : "50px",
+        }}
         whileHover={{ x: -50, y: -50, rotate: 45 }}
         transition={{ ease: "linear", duration: 3 }}
         onMouseEnter={handleButterflyHover}
       />
       {/* <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" /> */}
-      <ScrollTextContainer>
+      <div style={{ paddingTop: isMobile ? "3rem" : "6rem" }}>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
@@ -218,7 +254,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </ScrollTextContainer>
+      </div>
     </HeightPage>
   );
 };
