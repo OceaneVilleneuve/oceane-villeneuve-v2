@@ -11,11 +11,11 @@ import ButterflyRight from "../../assets/4467b2537f5e5ada1e527a8573de8a7e.gif";
 // import ButterflyLeft from "../../assets/1042729_252ef.gif"
 
 const HeightPage = styled.div`
-  height: 100vh;
+  min-height: 100vh;
 `;
 const TitleWebsite = styled.h1`
   font-weight: lighter;
-  position: absolute;
+  position: absolute; /* Modifier cette ligne */
   z-index: -2;
 `;
 const SubTitleWebsiteWeb = styled.h1`

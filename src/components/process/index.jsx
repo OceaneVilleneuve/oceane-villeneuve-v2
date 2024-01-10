@@ -6,7 +6,7 @@
 // // import colors from '../../utils/style/colors';
 
 // const HeightPage = styled.div`
-//   height: 100vh;
+
 //   padding-top: 10rem;
 // `;
 // const SubTitleProcess = styled.h2`
@@ -126,122 +126,118 @@
 // };
 
 // export default Process;
-import { useEffect, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import styled from "styled-components";
 
-const HeightPage = styled.div`
-  height: 100vh;
-  padding-top: 10rem;
+
+
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+const ContainerProcess = styled.div`
+  min-height: 100vh;
+  padding-top: 20vh;
+  position: relative;
 `;
 
-const SubTitleProcess = styled.h2`
-  font-family: "Ade Display", serif;
-  font-weight: lighter;
-  padding-left: 20px;
-`;
-
-const SubTitleNumber = styled.p`
-  font-size: 10px;
-  padding-top: 19px;
+const SectionContainer = styled.div`
+  margin-bottom: 20px;
+  position: relative;
 `;
 
 const SubTitleContainer = styled.div`
   display: flex;
-  padding-left: 54px;
-  margin-top: -1em;
+  align-items: center;
+  cursor: pointer;
+  color: ${({ isOpen }) => (isOpen ? 'black' : 'gray')};
+  transition: color 0.3s ease;
+  position: absolute;
+  left: ${({ index }) => (index % 2 === 0 ? '20px' : '200px')};
+  top: ${({ index }) => (index % 2 === 0 ? `${index * 100}px` : `${index * 120}px`)};
 `;
 
-const ContainerProcess = styled.div`
-  display: flex;
-  justify-content: space-between;
+const SubTitleNumber = styled.p`
+  font-size: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+`;
+
+const SubTitleProcess = styled.h2`
+  font-family: 'Ade Display', serif;
+  font-weight: lighter;
+  margin-bottom: 0;
+`;
+
+const ArrowIcon = styled(motion.div)`
+  width: 20px;
+  height: 20px;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(-135deg)' : 'rotate(45deg)')};
+  transition: transform 0.3s ease;
+  margin-left: 10px; /* Ajustez la marge à droite du titre */
+`;
+
+const TextContainer = styled.div`
+  margin-top: 20px;
+  position: absolute;
+  left: ${({ index }) => (index % 2 === 0 ? '20px' : '200px')};
+  top: ${({ index }) => (index % 2 === 0 ? `${index * 100}px` : `${index * 120}px`)};
 `;
 
 const Process = () => {
-  const [activeSection, setActiveSection] = useState(0);
-  const paragraphControls = useAnimation();
+  const [openSections, setOpenSections] = useState([]);
 
   const sectionsData = [
     {
       title: 'BRIEF',
-      text:
-        'On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard.',
+      text: 'Contenu du Brief...',
     },
     {
       title: 'DESIGN',
-      text:
-        'Morbi ut scelerisque nibh. Integer auctor, massa non dictum tristique, elit metus efficitur elit, ac pretium sapien nisl nec ante. In et ex ultricies, mollis mi in, euismod dolor.',
+      text: 'Contenu du Design...',
     },
     {
       title: 'DEVELOPPEMENT',
-      text:
-        'Maecenas quis elementum nulla, in lacinia nisl. Ut rutrum fringilla aliquet. Pellentesque auctor vehicula malesuada. Aliquam id feugiat sem, sit amet tempor nulla. Quisque fermentum felis faucibus, vehicula metus ac, interdum nibh.',
+      text: 'Contenu du Développement...',
     },
     {
       title: 'PRODUCTION',
-      text:
-        'Curabitur vitae convallis ligula. Integer ac enim vel felis pharetra laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque hendrerit ac augue quis pretium.',
+      text: 'Contenu de la Production...',
     },
   ];
 
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const sectionHeight = windowHeight;
-
-    const newActiveSection = Math.floor(scrollY / sectionHeight);
-
-    if (newActiveSection !== activeSection) {
-      setActiveSection(newActiveSection);
-      paragraphControls.start({ opacity: 0, x: -20 });
-
-      setTimeout(() => {
-        paragraphControls.start({ opacity: 1, x: 0 });
-      }, 500);
-    }
+  const toggleSection = (index) => {
+    setOpenSections((prevOpenSections) => {
+      const newOpenSections = [...prevOpenSections];
+      newOpenSections[index] = !newOpenSections[index];
+      return newOpenSections;
+    });
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [activeSection, paragraphControls]);
-
   return (
-    <HeightPage id="processPage">
+    <ContainerProcess id="processPage">
       <h1>MY PROCESSUS</h1>
-      <ContainerProcess>
-        <div>
-          {[...Array(sectionsData.length).keys()].map((index) => (
-            <SubTitleContainer key={index}>
-              <SubTitleNumber>{index + 1}.</SubTitleNumber>
-              <SubTitleProcess
-                style={{
-                  color: activeSection === index ? 'black' : `rgba(0, 0, 0, ${0.1 * Math.abs(index - activeSection)})`,
-                }}
-              >
-                {sectionsData[index].title}
-              </SubTitleProcess>
-            </SubTitleContainer>
-          ))}
-
-          <motion.p
-            animate={paragraphControls}
-            transition={{ duration: 0.5 }}
-            style={{
-              fontSize: '15px',
-              width: '35%',
-              textAlign: 'center',
-              paddingRight: '160px',
-            }}
+      {sectionsData.map((section, index) => (
+        <SectionContainer key={index}>
+          <SubTitleContainer
+            index={index}
+            isOpen={openSections[index]}
+            onClick={() => toggleSection(index)}
           >
-            {sectionsData[activeSection]?.text}
-          </motion.p>
-        </div>
-      </ContainerProcess>
-    </HeightPage>
+            <SubTitleNumber>{index + 1}.</SubTitleNumber>
+            <SubTitleProcess>{section.title}</SubTitleProcess>
+            <ArrowIcon isOpen={openSections[index]} />
+          </SubTitleContainer>
+          {openSections[index] && (
+            <TextContainer index={index}>
+              <p>{section.text}</p>
+            </TextContainer>
+          )}
+        </SectionContainer>
+      ))}
+    </ContainerProcess>
   );
 };
 
