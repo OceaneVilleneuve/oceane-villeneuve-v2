@@ -132,6 +132,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import arrowImage from "../../assets/image-80b19b4b-21f3-4e0f-8ffe-069bf976b0f2.png";
 
 const ContainerProcess = styled.div`
   min-height: 100vh;
@@ -167,15 +168,21 @@ const SubTitleProcess = styled.h2`
   margin-bottom: 0;
 `;
 
-const ArrowIcon = styled(motion.div)`
-  width: 20px;
-  height: 20px;
-  border: solid #333;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(-135deg)' : 'rotate(45deg)')};
-  transition: transform 0.3s ease;
+// const ArrowIcon = styled(motion.div)`
+//   width: 20px;
+//   height: 20px;
+//   border: solid #E6C8C8;
+//   border-width: 0 2px 2px 0;
+//   display: inline-block;
+//   padding: 3px;
+//   transform: ${({ isOpen }) => (isOpen ? 'rotate(-135deg)' : 'rotate(45deg)')};
+//   transition: transform 0.3s ease;
+//   margin-left: 10px; /* Ajustez la marge à droite du titre */
+// `;
+
+const ArrowImage = styled(motion.img)`
+  width: 20px; /* Ajustez la taille selon vos besoins */
+  height: 20px; /* Ajustez la taille selon vos besoins */
   margin-left: 10px; /* Ajustez la marge à droite du titre */
 `;
 
@@ -228,7 +235,13 @@ const Process = () => {
           >
             <SubTitleNumber>{index + 1}.</SubTitleNumber>
             <SubTitleProcess>{section.title}</SubTitleProcess>
-            <ArrowIcon isOpen={openSections[index]} />
+            <ArrowImage
+              src={arrowImage}
+              alt="Arrow"
+              initial={false}
+              animate={{ rotate: openSections[index] ? -135 : 45 }}
+              transition={{ duration: 0.3 }}
+            />
           </SubTitleContainer>
           {openSections[index] && (
             <TextContainer index={index}>
