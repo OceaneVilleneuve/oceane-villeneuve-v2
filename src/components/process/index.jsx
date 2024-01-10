@@ -77,7 +77,7 @@ const Process = () => {
           />
         ))}
       </motion.div>
-      <div style={{ paddingTop: isMobile ? "3rem" : "7rem" }}>
+      <div style={{ paddingTop: isMobile ? "3rem" : "10rem" }}>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
