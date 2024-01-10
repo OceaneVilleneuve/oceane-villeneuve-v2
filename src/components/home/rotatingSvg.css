@@ -5,7 +5,7 @@
   width: 260px;
   height: 260px;
   transform-origin: center;
-  animation: rotateAndMove 10s linear infinite;
+  animation: rotateAndMove 12s linear infinite;
   z-index: -4;
   left: 47%;
 }

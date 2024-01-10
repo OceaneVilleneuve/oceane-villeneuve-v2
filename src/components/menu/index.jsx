@@ -58,7 +58,6 @@ const Menu = () => {
   }, [menuRef]);
 
   useEffect(() => {
-    console.log(isMenuOpen);
     if (isMenuOpen) {
       menuControls.start("visible");
     } else {

@@ -10,6 +10,7 @@ const Projects = () => {
   return (
     <div id="projectsPage">
     {/* Contenu du composant */}
+    {/* Parallax framer motion */}
     </div>
   )
 };

@@ -8,10 +8,10 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./rotatingSvg.css";
 import ButterflyRight from "../../assets/4467b2537f5e5ada1e527a8573de8a7e.gif";
-// import ButterflyLeft from "../../assets/1042729_252ef.gif"
 
 const HeightPage = styled.div`
   min-height: 100vh;
+  padding-top: 2rem;
 `;
 const TitleWebsite = styled.h1`
   font-weight: lighter;
@@ -65,15 +65,6 @@ const ButterflyPngRight = styled(motion.img)`
   object-fit: cover;
   z-index: 2;
 `;
-
-// const ButterflyPngLeft = styled.img`
-//   position: absolute;
-//   top: 10rem;
-//   right: 11rem;
-//   height: 40px;
-//   width: 40px;
-//   object-fit: cover;
-// `;
 
 const Home = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -156,9 +147,10 @@ const Home = () => {
       </div>
       <motion.div
         key={animationKey}
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1.5 }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ ease: "easeOut", duration: 1 }}
+        style={{ position: "relative" }}
       >
         <div
           style={{
@@ -208,7 +200,7 @@ const Home = () => {
         initial={{
           opacity: 0,
           scale: 0.5,
-          x: window.innerWidth,
+          x: +380,
           y: window.innerHeight,
         }}
         animate={{
@@ -227,8 +219,7 @@ const Home = () => {
         transition={{ ease: "linear", duration: 3 }}
         onMouseEnter={handleButterflyHover}
       />
-      {/* <ButterflyPngLeft src={ButterflyLeft} alt="pretty butterfly" /> */}
-      <div style={{ paddingTop: isMobile ? "3rem" : "14rem" }}>
+      <div style={{ paddingTop: isMobile ? "3rem" : "7rem" }}>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
