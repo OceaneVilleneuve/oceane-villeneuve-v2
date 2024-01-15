@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
-import { useMediaQuery } from 'react-responsive';
+// import { useMediaQuery } from 'react-responsive';
 import Title from './projectScroll';
 
 const ContainerProjects = styled.div`
@@ -32,7 +32,7 @@ const ArrowButton = styled.button`
 `;
 
 const Projects = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  // const isMobile = useMediaQuery({ maxWidth: 767 });
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
 
