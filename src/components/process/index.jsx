@@ -56,7 +56,7 @@ const Process = () => {
       id="processPage"
       ref={ref}
       style={{
-        paddingTop: isMobile ? "4rem" : "4rem",
+        paddingTop: isMobile ? "4rem" : "",
         minHeight: isMobile ? "70vh" : "100vh",
       }}
     >
@@ -70,7 +70,7 @@ const Process = () => {
         <h1
           style={{
             fontSize: isMobile ? "10px" : "25px",
-            padding: isMobile ? "45px 33px" : "85px",
+            padding: isMobile ? "45px 33px" : "85px 85px 10px 85px",
           }}
         >
           MY PROCESSUS
@@ -89,7 +89,7 @@ const Process = () => {
           />
         ))}
       </motion.div>
-      <div style={{ paddingTop: isMobile ? "7rem" : "10rem" }}>
+      <div style={{ paddingTop: isMobile ? "7rem" : "12.5rem" }}>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
