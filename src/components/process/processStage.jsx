@@ -85,7 +85,7 @@ const Title = ({ index, title, text, left }) => {
         />
       </SubTitleContainer>
       {isOpen && (
-        <TextContainer index={index}>
+        <TextContainer $index={index}>
           <p>{text}</p>
         </TextContainer>
       )}

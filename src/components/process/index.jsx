@@ -91,7 +91,7 @@ const Process = () => {
       </motion.div>
       <div style={{ paddingTop: isMobile ? "7rem" : "12.5rem" }}>
         <div className="m-scroll">
-          <div className="m-scroll__title">
+          <div className="m-scroll__title ">
             <div>
               <OpenToWorkContainer>
                 WEB DEVELOPPEMENT • DESIGN • WEB DEVELOPPEMENT • DESIGN • WEB
