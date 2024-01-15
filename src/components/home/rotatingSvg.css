@@ -32,11 +32,11 @@
 /* Media query pour les appareils mobiles avec une largeur maximale de 767px */
 @media only screen and (max-width: 767px) {
   .pong-image {
-    width: 100px; /* Réglez la largeur souhaitée pour les appareils mobiles */
-    height: 100px; /* Réglez la hauteur souhaitée pour les appareils mobiles */
+    width: 240px; /* Réglez la largeur souhaitée pour les appareils mobiles */
+    height: 240px; /* Réglez la hauteur souhaitée pour les appareils mobiles */
     animation: rotateAndMoveMobile 10s linear infinite; /* Nouvelle animation pour mobile */
-    top: 11rem;
-    left: 46%;
+    top: 21rem;
+    left: 44%;
   }
 }
 

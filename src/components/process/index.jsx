@@ -7,14 +7,7 @@ import "../home/infiniteScolling.css";
 import ProcessStage from "./processStage";
 
 const ContainerProcess = styled.div`
-  min-height: 100vh;
   position: relative;
-  padding-top: 4rem;
-`;
-
-const ProcessTitle = styled.h1`
-  font-size: 25px;
-  margin-left: 85px;
 `;
 
 const OpenToWorkContainer = styled.h1`
@@ -56,9 +49,17 @@ const Process = () => {
   ];
 
   const subtitleStylesLeft = ["37%", "50%", "12%", "50%"];
+  const subtitleStylesLeftMobile = ["30%", "40%", "12%", "38%"];
 
   return (
-    <ContainerProcess id="processPage" ref={ref}>
+    <ContainerProcess
+      id="processPage"
+      ref={ref}
+      style={{
+        paddingTop: isMobile ? "4rem" : "4rem",
+        minHeight: isMobile ? "70vh" : "100vh",
+      }}
+    >
       <motion.div
         key={animationKey}
         initial={{ x: -50, opacity: 0 }}
@@ -66,18 +67,29 @@ const Process = () => {
         transition={{ duration: 1.3 }}
         style={!inView ? { visibility: "hidden" } : {}}
       >
-        <ProcessTitle>MY PROCESSUS</ProcessTitle>
+        <h1
+          style={{
+            fontSize: isMobile ? "10px" : "25px",
+            padding: isMobile ? "45px 33px" : "85px",
+          }}
+        >
+          MY PROCESSUS
+        </h1>
         {sectionsData.map((section, index) => (
           <ProcessStage
             key={section.title}
             index={index}
             title={section.title}
             text={section.text}
-            left={subtitleStylesLeft[index]}
+            left={
+              isMobile
+                ? subtitleStylesLeftMobile[index]
+                : subtitleStylesLeft[index]
+            }
           />
         ))}
       </motion.div>
-      <div style={{ paddingTop: isMobile ? "3rem" : "10rem" }}>
+      <div style={{ paddingTop: isMobile ? "7rem" : "10rem" }}>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>

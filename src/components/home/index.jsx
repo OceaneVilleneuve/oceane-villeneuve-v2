@@ -90,7 +90,10 @@ const Home = () => {
   return (
     <HeightPage
       id="homePage"
-      style={{ paddingTop: isMobile ? "1rem" : "5rem" }}
+      style={{
+        paddingTop: isMobile ? "1rem" : "5rem",
+        minHeight: isMobile ? "75vh" : "100vh",
+      }}
     >
       <div ref={ref}>
         <motion.div
@@ -101,8 +104,8 @@ const Home = () => {
         >
           <TitleWebsite
             style={{
-              fontSize: isMobile ? "17px" : "70px",
-              padding: isMobile ? "0px 33px" : "0px 80px",
+              fontSize: isMobile ? "30px" : "70px",
+              padding: isMobile ? "30px 33px" : "0px 80px",
             }}
           >
             BONJOUR,
@@ -121,24 +124,24 @@ const Home = () => {
         >
           <SubTitleWebsiteWeb
             style={{
-              fontSize: isMobile ? "17px" : "70px",
-              padding: isMobile ? "3rem 4.9rem" : "11rem 19rem",
+              fontSize: isMobile ? "30px" : "70px",
+              padding: isMobile ? "24rem 4.9rem" : "11rem 19rem",
             }}
           >
             WEB
           </SubTitleWebsiteWeb>
           <SubTitleWebsiteDeveloper
             style={{
-              fontSize: isMobile ? "17px" : "70px",
-              padding: isMobile ? "4rem 2rem" : "15rem 9rem",
+              fontSize: isMobile ? "30px" : "70px",
+              padding: isMobile ? "26rem 2rem" : "15rem 9rem",
             }}
           >
             DEVELOPPEUR
           </SubTitleWebsiteDeveloper>
           <SubTitleWebsiteDesigner
             style={{
-              fontSize: isMobile ? "17px" : "70px",
-              padding: isMobile ? "5rem 1.9rem" : "19rem 6rem",
+              fontSize: isMobile ? "30px" : "70px",
+              padding: isMobile ? "28rem 1.9rem" : "19rem 6rem",
             }}
           >
             DESIGNER
@@ -155,7 +158,7 @@ const Home = () => {
         <div
           style={{
             position: "absolute",
-            padding: isMobile ? "4rem 0px 0px 33px" : " 18rem 0px 0px 85px",
+            padding: isMobile ? "32rem 0px 0px 33px" : " 18rem 0px 0px 85px",
           }}
         >
           <SocialLink
@@ -177,7 +180,7 @@ const Home = () => {
       </motion.div>
       <PictureContainer
         ref={ref}
-        style={{ paddingTop: isMobile ? null : "2rem" }}
+        style={{ paddingTop: isMobile ? "9rem" : "2rem" }}
       >
         <AnimatedPicture
           key={animationKey}
@@ -186,8 +189,8 @@ const Home = () => {
           transition={{ ease: "easeOut", duration: 1 }}
           style={{
             zIndex: -3,
-            height: isMobile ? "150px" : "420px",
-            width: isMobile ? "150px" : "420px",
+            height: isMobile ? "230px" : "420px",
+            width: isMobile ? "230px" : "420px",
           }}
           src={ProfilPicture}
           alt="Oceane"
@@ -210,7 +213,7 @@ const Home = () => {
           y: hasHovered ? -500 : 0,
         }}
         style={{
-          top: isMobile ? "8.6rem" : "22.5rem",
+          top: isMobile ? "30.3rem" : "22.5rem",
           right: isMobile ? "4rem" : "18rem",
           height: isMobile ? "35px" : "50px",
           width: isMobile ? "35px" : "50px",
@@ -219,7 +222,7 @@ const Home = () => {
         transition={{ ease: "linear", duration: 3 }}
         onMouseEnter={handleButterflyHover}
       />
-      <div style={{ paddingTop: isMobile ? "3rem" : "7rem" }}>
+      <div style={{ paddingTop: isMobile ? "18rem" : "7rem" }}>
         <div className="m-scroll">
           <div className="m-scroll__title">
             <div>
