@@ -1,18 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Slider from 'react-slick';
+import { motion, useAnimation } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 import Title from './projectScroll';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const ContainerProjects = styled.div`
   position: relative;
   overflow: hidden;
+  height: 100vh;
+  display: flex;
+`;
+
+const ProjectContainer = styled(motion.div)`
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 `;
 
 const Project = styled.div`
-  padding: 20px;
+  flex: 0 0 100vw;
 `;
 
 const ArrowButton = styled.button`
@@ -27,6 +32,10 @@ const ArrowButton = styled.button`
 `;
 
 const Projects = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const controls = useAnimation();
+
   const projectList = [
     {
       entreprise: 'Alexa',
@@ -46,35 +55,31 @@ const Projects = () => {
     },
   ];
 
-  const sliderRef = useRef(null);
-
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    draggable: true,
-  };
-
   const handlePrev = () => {
-    sliderRef.current.slickPrev();
+    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : projectList.length - 1));
   };
 
   const handleNext = () => {
-    sliderRef.current.slickNext();
+    setCurrentIndex((prevIndex) => (prevIndex < projectList.length - 1 ? prevIndex + 1 : 0));
   };
+
+  useEffect(() => {
+    controls.start({
+      x: `-${currentIndex * 100}vw`,
+      transition: { duration: 0.5 },
+    });
+  }, [currentIndex, controls]);
 
   return (
     <ContainerProjects id="projectsPage">
       <ArrowButton direction="prev" onClick={handlePrev}>{'<'}</ArrowButton>
-      <Slider ref={sliderRef} {...settings}>
+      <ProjectContainer style={{ transform: `translateX(-${currentIndex * 100}vw)` }}>
         {projectList.map((project, index) => (
           <Project key={index}>
             <Title index={index} entreprise={project.entreprise} text={project.text} />
           </Project>
         ))}
-      </Slider>
+      </ProjectContainer>
       <ArrowButton direction="next" onClick={handleNext}>{'>'}</ArrowButton>
     </ContainerProjects>
   );
