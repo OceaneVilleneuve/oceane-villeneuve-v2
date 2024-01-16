@@ -21,6 +21,14 @@ code {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Yahren';
+  src: url('./fonts/Yahren/Yahrenv2ei.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+
 h1 {
   font-family: 'Ade Display', serif;
   font-weight: lighter;
