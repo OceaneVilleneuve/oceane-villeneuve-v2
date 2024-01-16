@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Cards from "./projectCarousselCards";
 import AlexaStudioPicture from "../../assets/ipad_dark-min-p-1600.png";
+import FerdPicture from "../../assets/Capture_d_écran_16.01.2024_à_15.49.58_PM-removebg-preview.png";
 
 const ContainerProjects = styled.div`
   position: relative;
@@ -24,6 +25,7 @@ const Button = styled.button`
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
+  z-index: 1;
   font-size: 24px;
   ${({ direction }) => (direction === "prev" ? "left: 0;" : "right: 0;")}
 `;
@@ -47,6 +49,7 @@ const Projects = () => {
     {
       entreprise: "Ferd",
       text: "Contenu du Design...",
+      image: FerdPicture,
     },
   ];
 
