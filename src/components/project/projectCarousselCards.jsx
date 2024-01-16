@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 const Container = styled(motion.div)`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const InformationProjectContainer = styled(motion.div)`
@@ -38,7 +38,7 @@ const Cards = ({ index, entreprise, text, image }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 1,
   });
 
   useEffect(() => {
@@ -54,14 +54,17 @@ const Cards = ({ index, entreprise, text, image }) => {
   // Genere une clé unique basé sur l'index du carousel et l'ancre de la page
   const uniqueKey = `${index}_${inView ? "inView" : "notInView"}`;
 
-  let pictureWidth, pictureHeight;
+  let pictureWidth, pictureHeight, picturePadding, contentPadding;
 
   if (isMobile) {
     pictureWidth = isAlexa ? "23rem" : isFerd ? "21rem" : "auto";
     pictureHeight = isAlexa ? "14rem" : isFerd ? "16rem" : "auto";
+    // picturePadding = isAlexa ? "13rem 3rem 0rem 2rem" : isFerd ? "13rem 3rem 0rem 2rem" : "auto";
   } else {
-    pictureWidth = isAlexa ? "42rem" : isFerd ? "38rem" : "auto";
-    pictureHeight = isAlexa ? "26rem" : isFerd ? "30rem" : "auto";
+    pictureWidth = isAlexa ? "42rem" : isFerd ? "40rem" : "auto";
+    pictureHeight = isAlexa ? "26rem" : isFerd ? "31rem" : "auto";
+    picturePadding = isAlexa ? "13rem 4rem 0rem 7rem" : isFerd ? "12rem 3rem 0rem 10rem" : "auto";
+    contentPadding = isAlexa ? "30rem 2rem 0rem 0rem" : isFerd ? "30rem 3rem 0rem 3rem" : "auto";
   }
 
   return (
@@ -93,14 +96,14 @@ const Cards = ({ index, entreprise, text, image }) => {
           style={{
             width: pictureWidth,
             height: pictureHeight,
-            padding: isMobile ? "5rem 0rem 3rem 0rem" : "13rem 3rem 0rem 2rem",
+            padding: picturePadding,
           }}
         />
       </div>
       <div ref={ref}></div>
       <InformationProjectContainer
         style={{
-          padding: isMobile ? "3rem 0rem 2rem 0rem" : "29rem 7rem 0rem 0rem",
+          padding: contentPadding,
           width: isMobile ? "100%" : "100%",
         }}
         initial={{ x: 200, opacity: 0 }} // Start off-screen to the right
