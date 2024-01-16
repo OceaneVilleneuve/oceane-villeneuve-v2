@@ -3,11 +3,13 @@ import styled from "styled-components";
 import Cards from "./projectCarousselCards";
 import AlexaStudioPicture from "../../assets/ipad_dark-min-p-1600.png";
 import FerdPicture from "../../assets/Capture_d_écran_16.01.2024_à_15.49.58_PM-removebg-preview.png";
+import { useMediaQuery } from "react-responsive";
+
 
 const ContainerProjects = styled.div`
   position: relative;
   overflow: hidden;
-  height: 100vh;
+
 `;
 
 const ProjectContainer = styled.div`
@@ -38,6 +40,7 @@ const ProjectNumber = styled.p`
 `;
 
 const Projects = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const projectList = [
@@ -66,7 +69,7 @@ const Projects = () => {
   };
 
   return (
-    <ContainerProjects id="projectsPage">
+    <ContainerProjects id="projectsPage" style={{minHeight: isMobile ? "80vh" : "100vh"}}>
       <Button direction="prev" onClick={handlePrev}>
         {"<"}
       </Button>
