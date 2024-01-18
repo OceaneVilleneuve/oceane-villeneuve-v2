@@ -12,6 +12,7 @@ const Container = styled(motion.div)`
 const InformationProjectContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  padding: 30rem 2rem 0rem 0rem;
 `;
 
 const TextContainer = styled.div`
@@ -19,7 +20,10 @@ const TextContainer = styled.div`
 `;
 
 const Picture = styled(motion.img)`
-  object-fit: cover;
+  object-fit: contain;
+  width: 42rem;
+  height: 26rem;
+  padding: 13rem 4rem 0rem 7rem;
 `;
 
 const Title = styled.div`
@@ -54,17 +58,14 @@ const Cards = ({ index, entreprise, text, image }) => {
   // Genere une clé unique basé sur l'index du carousel et l'ancre de la page
   const uniqueKey = `${index}_${inView ? "inView" : "notInView"}`;
 
-  let pictureWidth, pictureHeight, picturePadding, contentPadding;
+  let pictureWidth, pictureHeight, picturePadding, contentPadding, textAlign;
 
   if (isMobile) {
-    pictureWidth = isAlexa ? "23rem" : isFerd ? "21rem" : "auto";
-    pictureHeight = isAlexa ? "14rem" : isFerd ? "16rem" : "auto";
-    // picturePadding = isAlexa ? "13rem 3rem 0rem 2rem" : isFerd ? "13rem 3rem 0rem 2rem" : "auto";
-  } else {
-    pictureWidth = isAlexa ? "42rem" : isFerd ? "40rem" : "auto";
-    pictureHeight = isAlexa ? "26rem" : isFerd ? "31rem" : "auto";
-    picturePadding = isAlexa ? "13rem 4rem 0rem 7rem" : isFerd ? "12rem 3rem 0rem 10rem" : "auto";
-    contentPadding = isAlexa ? "30rem 2rem 0rem 0rem" : isFerd ? "30rem 3rem 0rem 3rem" : "auto";
+    pictureWidth =  "21rem";
+    pictureHeight = "13rem";
+    picturePadding = "6rem 2.5rem 0rem";
+    textAlign = "center";
+    contentPadding = "5rem 0rem 2rem 0rem";
   }
 
   return (
@@ -105,6 +106,7 @@ const Cards = ({ index, entreprise, text, image }) => {
         style={{
           padding: contentPadding,
           width: isMobile ? "100%" : "100%",
+          textAlign: textAlign,
         }}
         initial={{ x: 200, opacity: 0 }} // Start off-screen to the right
         animate={{
