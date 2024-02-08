@@ -32,19 +32,19 @@ const Process = () => {
   const sectionsData = [
     {
       title: "BRIEF",
-      text: "Contenu du Brief...",
+      text: "Nous réaliserons un appel téléphonique et visio afin que je puisse recueillir tes besoins précis ainsi que ton projet d'application. Lors de cet appel, je pourrai aussi recueillir tes idées design si tu n'as pas de maquette.",
     },
     {
       title: "DESIGN",
-      text: "Contenu du Design...",
+      text: "Je réalise une maquette très simple en wireframe de ton application sur Figma. Une fois cette maquette réalisée, une maquette réaliste de ton site est créée sur Figma, qui servira de template définitif pour ton application.",
     },
     {
       title: "DEVELOPPEMENT",
-      text: "Contenu du Développement...",
+      text: "Je développe ton application dans le langage le plus adapté.",
     },
     {
       title: "PRODUCTION",
-      text: "Contenu de la Production...",
+      text: "C'est la phase finale du projet. Le site est enfin mis en production après validation de votre part de la partie développement. L'application est donc maintenant en ligne.",
     },
   ];
 

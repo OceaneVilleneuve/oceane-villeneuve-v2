@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { useMediaQuery } from "react-responsive";
 import styled from 'styled-components';
 import ProfilPicture from "../../assets/IMG_0146.JPG";
 import PictureFrame from "../../assets/2.PNG";
@@ -33,14 +34,9 @@ const AboutMeTitle = styled.h1`
 
 const ProfilPictureFrame = styled.img`
   position: absolute;
-  width: 32rem;
-  height: 42rem;
-  top: 52px;
 `;
 
 const ProfilPictureAboutMe = styled.img`
-  width: 20rem;
-  height: 26rem;
   object-fit: cover;
   border-radius: 153px;
 `;
@@ -51,17 +47,34 @@ const Description = styled.p`
 
 
 const AboutMe = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
 <AboutMeContainer id="aboutMePage">
-      <ProfilPictureAboutMe src={ProfilPicture} alt="Oceane" />
-      <ProfilPictureFrame src={PictureFrame} alt="Frame" />
+      <ProfilPictureAboutMe
+      src={ProfilPicture} alt="Oceane"
+      style={{
+        height: isMobile ? "23rem" : "27rem",
+        width: isMobile ? "15rem" : "20rem",
+      }}/>
+      <ProfilPictureFrame
+      src={PictureFrame} alt="Frame"
+      style={{
+        height: isMobile ? "34rem" : "42rem",
+        width: isMobile ? "24rem" : "32rem",
+        top: isMobile ? "70px": "52px",
+      }}/>
       <AboutMeTitle>
-    ABOUTE ME ABOUTE ME ABOUTE ME ABOUTE ME
+    {/* A PROPOS DE MOI A PROPOS DE MOI */}
 </AboutMeTitle>
 
 
-      <Description>Je m'appelle Océane. Je suis designer et développeuse web. 1 an d'expérience et des projets.</Description>
+      <Description
+        style={{
+          height: isMobile ? "230px" : null,
+          width: isMobile ? "270px" : null,
+        }}>
+          Je m'appelle Océane. Je suis développeuse web et designeur web. J'ai 1 an d'expérience et deux projets à mon actif.</Description>
     </AboutMeContainer>
   );
 };

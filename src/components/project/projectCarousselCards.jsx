@@ -35,7 +35,13 @@ const Title = styled.div`
       : "Ade Display"};
 `;
 
-const Cards = ({ index, entreprise, text, image }) => {
+const Site = styled.a`
+text-decoration: none;
+color: white;
+padding-top: 5px;
+`
+
+const Cards = ({ index, entreprise, text, image, site }) => {
   const isAlexa = entreprise === "Alexa Studio Création";
   const isFerd = entreprise === "Ferd";
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -126,8 +132,11 @@ const Cards = ({ index, entreprise, text, image }) => {
           {entreprise}
         </Title>
         <TextContainer>
-          <p>{text}</p>
-        </TextContainer>
+  <Site href={site} target="_blank" rel="noopener noreferrer">
+    {site}
+  </Site>
+  <p>{text}</p>
+</TextContainer>
       </InformationProjectContainer>
     </Container>
   );
