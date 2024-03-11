@@ -9,6 +9,19 @@ const Label = styled.label`
   color: #888686;
   font-size: 12px;
 `;
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Arrière-plan semi-transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Valeur z-index pour s'assurer qu'il est au-dessus du formulaire */
+  backdrop-filter: blur(5px); /* Ajoute un flou au fond */
+`;
 
 const SendButton = styled.button`
   background-color: transparent;
@@ -113,9 +126,9 @@ function Form() {
   return (
     <>
       {isLoading ? (
-        <div className="modal-overlay">
+        <Overlay>
           <LoadingSpinner />
-        </div>
+        </Overlay>
       ) : null}
       {isMobile ? (
         <div className="container mt-5">
