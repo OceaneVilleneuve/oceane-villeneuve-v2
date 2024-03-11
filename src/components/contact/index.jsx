@@ -69,6 +69,7 @@ function Contact() {
         flexDirection: isMobile ? "column" : null,
       }}
     >
+      <div>
       <h1
         style={{
           marginLeft: isMobile ? null : "3em",
@@ -85,6 +86,7 @@ function Contact() {
       >
         I’m available for new projects and collaborations.
       </Description>
+      </div>
       <PageContact
         style={{
           display: isMobile ? null : "flex",

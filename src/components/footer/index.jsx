@@ -1,47 +1,32 @@
-// import React from 'react';
-// import styled from 'styled-components';
-// import { useMediaQuery } from 'react-responsive';
-// import ReactLogo from '../../assets/react_logo.png';
+import React from "react";
+import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
 
-// const FooterContainer = styled.div`
-//   padding-top: 2em;
-//   padding-bottom: 2em;
-//   border-top: 0.5px solid black;
-//   position: relative;
-// `
-
-
-// const DesktopFooter = () => (
-//   <FooterContainer>
-//     <FooterInformation>
-//       2023 - Développé et designé par Océane VILLENEUVE
-//     </FooterInformation>
-//     <PowerByReact>
-//       Powered by React
-//       <ReactLogoStyled src={ReactLogo} />
-//     </PowerByReact>
-//   </FooterContainer>
-// );
-
-// const MobileFooter = () => (
-//   <FooterContainerMobile>
-//     <FooterInformationMobile>
-//       © 2023 - Océane VILLENEUVE
-//     <PowerByReactMobile>
-//       Powered by React
-//     </PowerByReactMobile>
-//     </FooterInformationMobile>
-//   </FooterContainerMobile>
-// );
+const FooterContainer = styled.div`
+  padding-bottom: 2em;
+`;
+const FooterInformation = styled.p`
+  color: #000;
+  font-family: "Mina";
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+`;
 
 const Footer = () => {
-  // const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  // return (
-  //   <>
-  //   {isMobile ? <MobileFooter /> : <DesktopFooter />}
-  //   </>
-  // );
+  return (
+    <FooterContainer
+      style={{
+        paddingTop: isMobile ? "8em" : "2em",
+      }}
+    >
+      <FooterInformation>
+        2023 - Développement et désign par Océane Villeneuve
+      </FooterInformation>
+    </FooterContainer>
+  );
 };
 
 export default Footer;
