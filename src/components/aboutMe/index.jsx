@@ -60,9 +60,9 @@ const AboutMe = () => {
       <ProfilPictureFrame
       src={PictureFrame} alt="Frame"
       style={{
-        height: isMobile ? "42rem" : "42rem",
+        height: isMobile ? "34rem" : "42rem",
         width: isMobile ? "24rem" : "32rem",
-        top: isMobile ? "70px": "52px",
+        top: isMobile ? "85px": "52px",
       }}/>
       <AboutMeTitle>
     {/* A PROPOS DE MOI A PROPOS DE MOI */}
