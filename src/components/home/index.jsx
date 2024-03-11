@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
-import ProfilPicture from "../../assets/oceane.jpeg";
+import ProfilPicture from "../../assets/IMG_0146.JPG";
 import SunBurst from "../../assets/Sunburst4.png";
 import "./infiniteScolling.css";
 import { motion } from "framer-motion";
