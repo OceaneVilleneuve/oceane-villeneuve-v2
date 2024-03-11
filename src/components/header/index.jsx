@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import { FiMoon } from "react-icons/fi";
 import { IoMdMoon } from "react-icons/io";
 import { FaArrowUpLong } from "react-icons/fa6";
-import Menu from "../menu"
-import { useMediaQuery } from 'react-responsive';
+import Menu from "../menu";
+import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 import Item from "../menu/item";
 
@@ -16,17 +16,16 @@ const HeaderContainer = styled.nav`
   position: sticky;
   top: 0px;
   z-index: 3;
-`
+`;
 
-const HeaderBanner = styled.h1 `
-  font-size: 16px
-`
+const HeaderBanner = styled.h1`
+  font-size: 16px;
+`;
 
-const WrapperFlex = styled.div `
+const WrapperFlex = styled.div`
   display: flex;
-  justify-content: space-between
-`
-
+  justify-content: space-between;
+`;
 
 const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -34,7 +33,7 @@ const Header = () => {
   const [isFiMoonHovered, setIsFiMoonHovered] = useState(false);
 
   return (
-    <HeaderContainer >
+    <HeaderContainer>
       <Item
         onMouseEnter={() => {
           setIsFiMoonHovered(true);
@@ -48,21 +47,24 @@ const Header = () => {
           width: isMobile ? null : "25%",
         }}
       />
-      <HeaderBanner>
-        OCEANE VILLENEUVE
-      </HeaderBanner>
+      <HeaderBanner>OCEANE VILLENEUVE</HeaderBanner>
       <WrapperFlex
-      style={{
-        width: isMobile ? null : "25%",
-      }}
+        style={{
+          width: isMobile ? null : "25%",
+          color: "black",
+        }}
       >
         {isMobile ? null : <Menu />}
-        <Item id="homePage" icon={FaArrowUpLong} />
+        <Item
+          id="homePage"
+          icon={FaArrowUpLong}
+          style={{
+            color: "black",
+          }}
+        />
       </WrapperFlex>
     </HeaderContainer>
-  )
+  );
 };
-
-
 
 export default Header;
