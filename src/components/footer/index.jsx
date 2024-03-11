@@ -23,7 +23,7 @@ const Footer = () => {
       }}
     >
       <FooterInformation>
-        2023 - Développement et désign par Océane Villeneuve
+        2023 - Développement et design par Océane Villeneuve
       </FooterInformation>
     </FooterContainer>
   );
