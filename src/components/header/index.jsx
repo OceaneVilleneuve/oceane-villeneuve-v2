@@ -52,6 +52,7 @@ const Header = () => {
         style={{
           width: isMobile ? null : "25%",
           color: "black",
+          textDecoration: "none",
         }}
       >
         {isMobile ? null : <Menu />}
@@ -60,6 +61,7 @@ const Header = () => {
           icon={FaArrowUpLong}
           style={{
             color: "black",
+            textDecoration: "none",
           }}
         />
       </WrapperFlex>
