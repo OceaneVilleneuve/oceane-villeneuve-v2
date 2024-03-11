@@ -46,6 +46,7 @@ const LinkToSocials = styled.a`
 `;
 const PaddingName = styled.div`
   padding-top: 4px;
+  font-family: "Ade Display", serif;
 `;
 
 const HeartWrapper = styled.img`
@@ -53,6 +54,7 @@ const HeartWrapper = styled.img`
   transform: rotate(-25deg);
   top: -179px;
   right: -31em;
+  z-index: -2;
 `;
 
 function Contact() {
@@ -132,7 +134,7 @@ function Contact() {
               <IconWrapper>
                 <FaLinkedinIn icon="fa-brands fa-linkedin-in" />
               </IconWrapper>
-              <PaddingName>LinkedIn</PaddingName>
+              <PaddingName>LINKEDIN</PaddingName>
             </Flex>
           </LinkToSocials>
           <LinkToSocials
@@ -146,7 +148,7 @@ function Contact() {
               <IconWrapper>
                 <FaGithub icon="fa-brands fa-github" />
               </IconWrapper>
-              <PaddingName>GitHub</PaddingName>
+              <PaddingName>GITHUB</PaddingName>
             </Flex>
           </LinkToSocials>
         </PersonnalInfo>
